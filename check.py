@@ -23,7 +23,7 @@ now = datetime.now()
 directions_result = gmaps.distance_matrix("Vancouver, BC, Canada|Annapolis, MD, USA",
                                      "San Francisco, California, USA|Victoria, BC, Canada")
 
-print directions_result
+#print directions_result
 
 #results = json.dumps(directions_result)
 rows = directions_result["rows"]
@@ -31,5 +31,7 @@ rows = directions_result["rows"]
 for row in rows:
 	#print row["elements"][0]['distance']['value']
 	for element in row["elements"]:
-		print element['distance']['value']
+		#print element['distance']['value']
+		print element
+
 #print json.dumps(directions_result)

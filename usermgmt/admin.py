@@ -10,7 +10,7 @@ class UserAdmin(admin.ModelAdmin):
     model = User
     can_delete = True
     verbose_name_plural = 'users'
-    list_display = ('username', 'password', 'longitude', 'latitude', 'timestamp')
+    list_display = ('username', 'password', 'latitude', 'longitude', 'timestamp')
 
 admin.site.register(User, UserAdmin)
 
