@@ -75,7 +75,7 @@ def get_user(request):
 
 	# user doesn't exist
 	if not user:
-        	return JsonResponse({'user' : {}}, content_type = "application/json", status = 200)
+        	return JsonResponse({'user' : {}}, content_type = "application/json", status = 400)
 
         data = {}
         data['username'] = user.username
@@ -121,13 +121,13 @@ def login(request):
 
 	# Missing parameters
 	if not username or not password:
-		return JsonResponse({'detail' : 'Missing username or password', 'status' : False}, content_type = "application/json", status = 200)
+		return JsonResponse({'detail' : 'Missing username or password', 'status' : False}, content_type = "application/json", status = 400)
 
 	user = User.objects.filter(username=username, password=password).first()
 
 	# User DNE
 	if not user:
-		return JsonResponse({'detail' : 'User DNE.', 'status' : False}, content_type = "application/json", status = 200)
+		return JsonResponse({'detail' : 'User DNE.', 'status' : False}, content_type = "application/json", status = 400)
 
         return JsonResponse({'detail' : 'Logged in.', 'status' : True}, content_type = "application/json", status = 200)
     except Exception as e:
